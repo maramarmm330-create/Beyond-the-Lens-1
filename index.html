@@ -1,0 +1,1474 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beyond the Lens | ما وراء العدسة</title>
+
+    <!-- مسح الأيقونة تماماً من المتصفح -->
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3C/svg%3E">
+    <link rel="shortcut icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3C/svg%3E">
+
+    <!-- Google Fonts: Alexandria & Montserrat -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alexandria:wght@300;400;500;600;700;800;900&family=Montserrat:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,500&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Alexandria', 'Montserrat', sans-serif;
+        }
+
+        :root {
+            --bg-dark: #121614;
+            --bg-card: #1C221E;
+            --accent-orange: #E07A48;
+            --text-primary: #F4F0EA;
+            --text-secondary: #B0A89E;
+            --border-dark: #2A332D;
+            --whatsapp-green: #25D366;
+        }
+
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #121614;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #2A332D;
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--accent-orange);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-primary);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            overflow-x: hidden;
+        }
+
+        /* Navbar Header */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.4rem 4rem;
+            background: rgba(18, 22, 20, 0.95);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border-dark);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo h2 {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--text-primary);
+            line-height: 1.1;
+        }
+
+        .logo span {
+            font-family: 'Alexandria', sans-serif;
+            font-size: 0.9rem;
+            color: var(--accent-orange);
+            letter-spacing: 1px;
+            display: block;
+            font-weight: 500;
+            margin-top: 4px;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 1.2rem;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .nav-links a {
+            color: var(--text-primary);
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: 600;
+            padding: 0.65rem 1.6rem;
+            border: 1.5px solid var(--border-dark);
+            border-radius: 30px;
+            background: rgba(255, 255, 255, 0.05);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            letter-spacing: 0.3px;
+        }
+
+        .lang-btn {
+            color: var(--text-primary);
+            font-size: 1.05rem;
+            font-weight: 700;
+            padding: 0.65rem 1.5rem;
+            border: 1.5px solid var(--border-dark);
+            border-radius: 30px;
+            background: rgba(255, 255, 255, 0.05);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .nav-links a:hover,
+        .lang-btn:hover {
+            border-color: var(--accent-orange);
+            color: var(--accent-orange);
+            background: rgba(224, 122, 72, 0.18);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(224, 122, 72, 0.2);
+        }
+
+        /* Hero Banner Section */
+        .hero-section {
+            padding: 3.5rem 4rem;
+            max-width: 1300px;
+            margin: 0 auto;
+            width: 100%;
+            scroll-margin-top: 90px;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 3.5rem;
+            align-items: center;
+        }
+
+        .hero-right-content {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .hero-left-media {
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+        }
+
+        .styled-square-img {
+            width: 100%;
+            height: 270px;
+            object-fit: cover;
+            border-radius: 12px;
+            border: 1px solid var(--border-dark);
+            background-color: var(--bg-card);
+            cursor: pointer;
+            transition: transform 0.3s ease, border-color 0.3s ease;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.5);
+        }
+
+        .styled-square-img:hover {
+            transform: translateY(-3px);
+            border-color: var(--accent-orange);
+        }
+
+        .location-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--accent-orange);
+            font-size: 0.88rem;
+            font-weight: 300;
+        }
+
+        .main-title {
+            font-size: 3.2rem;
+            font-weight: 900;
+            line-height: 1.2;
+            color: var(--text-primary);
+        }
+
+        .sub-title {
+            font-family: 'Alexandria', sans-serif;
+            color: var(--accent-orange);
+            font-size: 1.2rem;
+            font-weight: 400;
+            margin-bottom: 0.5rem;
+        }
+
+        .description {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            font-weight: 300;
+            line-height: 1.9;
+            text-align: justify;
+            text-justify: inter-word;
+        }
+
+        .btn {
+            padding: 0.8rem 2rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.88rem;
+            display: inline-block;
+            transition: all 0.3s ease;
+            width: fit-content;
+            margin-top: 0.5rem;
+        }
+
+        .btn-primary {
+            background-color: var(--accent-orange);
+            color: #121614;
+        }
+
+        .btn-primary:hover {
+            background-color: #f08956;
+            transform: translateY(-2px);
+        }
+
+        /* Info Bar */
+        .bottom-info-bar {
+            display: flex;
+            justify-content: space-around;
+            padding: 1.2rem 2rem;
+            background-color: var(--bg-card);
+            border-top: 1px solid var(--border-dark);
+            border-bottom: 1px solid var(--border-dark);
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+            font-weight: 300;
+        }
+
+        /* About Us Section */
+        .about-section {
+            padding: 5rem 4rem;
+            max-width: 1300px;
+            margin: 0 auto;
+            width: 100%;
+            scroll-margin-top: 100px;
+        }
+
+        .about-container {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+
+        .about-right-col {
+            display: flex;
+            flex-direction: column;
+            gap: 1.4rem;
+        }
+
+        .about-big-title {
+            font-size: 2.8rem;
+            font-weight: 900;
+            line-height: 1.25;
+            color: var(--text-primary);
+        }
+
+        .about-tag-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--accent-orange);
+            font-size: 0.85rem;
+            font-weight: 300;
+        }
+
+        .about-tag-header::after {
+            content: "";
+            display: inline-block;
+            width: 25px;
+            height: 1px;
+            background-color: var(--accent-orange);
+        }
+
+        .about-sub-heading {
+            font-size: 1.3rem;
+            font-weight: 800;
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+
+        .about-paragraph {
+            font-size: 0.95rem;
+            font-weight: 300;
+            line-height: 1.9;
+            color: var(--text-secondary);
+            text-align: justify;
+            text-justify: inter-word;
+        }
+
+        .about-support-card {
+            margin-top: 1rem;
+            padding: 1.2rem 1.5rem;
+            border: 1px solid var(--border-dark);
+            background: rgba(255, 255, 255, 0.01);
+            position: relative;
+            max-width: 380px;
+            border-radius: 4px;
+        }
+
+        html[dir="rtl"] .about-support-card {
+            border-right: 3px solid var(--accent-orange);
+        }
+
+        html[dir="ltr"] .about-support-card {
+            border-left: 3px solid var(--accent-orange);
+        }
+
+        .about-support-card .sup-title {
+            color: var(--accent-orange);
+            font-size: 0.8rem;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        .about-support-card .sup-desc {
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+            font-weight: 300;
+        }
+
+        /* Artists Section */
+        .artists-section {
+            padding: 3rem 4rem 5rem 4rem;
+            max-width: 1300px;
+            margin: 0 auto;
+            width: 100%;
+            scroll-margin-top: 90px;
+        }
+
+        .section-title {
+            font-size: 2.2rem;
+            font-weight: 900;
+            margin-bottom: 1.5rem;
+            color: var(--text-primary);
+        }
+
+        .artists-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 2px;
+            background: var(--border-dark);
+            border: 1px solid var(--border-dark);
+        }
+
+        .artist-card {
+            position: relative;
+            height: 380px;
+            background: var(--bg-card);
+            cursor: pointer;
+            overflow: hidden;
+        }
+
+        .artist-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center center;
+            filter: grayscale(100%);
+            transition: transform 0.4s ease, filter 0.4s ease;
+        }
+
+        .artist-card img[src*="175323"],
+        .artist-card img[src*="حسين"] {
+            object-position: 25% center !important;
+        }
+
+        .artist-card:hover img {
+            filter: grayscale(0%);
+            transform: scale(1.03);
+        }
+
+        .artist-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: var(--accent-orange);
+            color: #121614;
+            font-size: 0.68rem;
+            font-weight: 600;
+            padding: 3px 8px;
+            border-radius: 2px;
+            z-index: 3;
+        }
+
+        html[dir="ltr"] .artist-badge {
+            right: auto;
+            left: 10px;
+        }
+
+        .artist-card-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 1rem 0.8rem;
+            background: linear-gradient(0deg, rgba(18, 22, 20, 0.95) 0%, transparent 100%);
+            color: #FFFFFF;
+            z-index: 2;
+        }
+
+        .artist-card-overlay h3 {
+            font-size: 0.95rem;
+            font-weight: 800;
+        }
+
+        .artist-card-overlay p {
+            font-size: 0.72rem;
+            font-weight: 300;
+            color: var(--text-secondary);
+            margin-top: 2px;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            padding: 6rem 2rem;
+            text-align: center;
+            background-color: var(--bg-dark);
+            border-top: 1px solid var(--border-dark);
+            scroll-margin-top: 90px;
+        }
+
+        .contact-tag {
+            color: var(--accent-orange);
+            font-size: 0.85rem;
+            font-weight: 300;
+            margin-bottom: 1rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .contact-tag::before {
+            content: "";
+            display: inline-block;
+            width: 20px;
+            height: 1px;
+            background-color: var(--accent-orange);
+        }
+
+        .contact-title {
+            font-size: 3.5rem;
+            font-weight: 900;
+            color: var(--text-primary);
+            margin-bottom: 1.2rem;
+        }
+
+        .contact-subtitle {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            font-weight: 300;
+            max-width: 580px;
+            margin: 0 auto 2.5rem auto;
+            line-height: 1.8;
+            text-align: center;
+        }
+
+        .whatsapp-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background-color: var(--whatsapp-green);
+            color: #121614;
+            font-weight: 800;
+            font-size: 1.05rem;
+            padding: 0.85rem 2.4rem;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .whatsapp-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 22px rgba(37, 211, 102, 0.35);
+        }
+
+        /* Footer */
+        .site-footer {
+            background-color: #0B0E0C;
+            padding: 3rem 4rem;
+            border-top: 1px solid var(--border-dark);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 1.8rem;
+        }
+
+        .footer-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.88rem;
+            font-weight: 300;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent-orange);
+        }
+
+        .footer-brand h3 {
+            font-size: 1.2rem;
+            font-weight: 800;
+            color: var(--text-primary);
+            margin-bottom: 4px;
+        }
+
+        .footer-brand p {
+            color: var(--accent-orange);
+            font-size: 0.75rem;
+            font-weight: 300;
+            margin-bottom: 8px;
+        }
+
+        .footer-brand span {
+            color: var(--text-secondary);
+            font-size: 0.78rem;
+            font-weight: 300;
+            display: block;
+        }
+
+        /* Popup Modal */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.92);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            display: none;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+        }
+
+        .modal-content {
+            background: var(--bg-card);
+            width: 100%;
+            max-width: 1000px;
+            max-height: 90vh;
+            overflow-y: auto;
+            border-radius: 12px;
+            border: 1px solid var(--border-dark);
+            position: relative;
+            padding: 3.5rem 3rem 3rem 3rem;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.85);
+            animation: modalFadeIn 0.3s ease;
+            color: var(--text-primary);
+        }
+
+        @keyframes modalFadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .close-modal-btn {
+            position: absolute;
+            top: 1rem;
+            background: var(--accent-orange);
+            color: #121614;
+            border: none;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            font-size: 0.9rem;
+            font-weight: bold;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+            z-index: 10;
+        }
+
+        html[dir="rtl"] .close-modal-btn {
+            right: 1rem;
+        }
+
+        html[dir="ltr"] .close-modal-btn {
+            left: 1rem;
+        }
+
+        .close-modal-btn:hover {
+            transform: scale(1.15);
+        }
+
+        .artist-profile-layout {
+            display: grid;
+            grid-template-columns: 1fr 220px;
+            gap: 2.5rem;
+            align-items: start;
+            margin-bottom: 2rem;
+        }
+
+        .artist-info-col h1 {
+            font-size: 2.2rem;
+            font-weight: 900;
+            color: var(--text-primary);
+            margin-bottom: 0.2rem;
+            line-height: 1.2;
+        }
+
+        .artist-info-col .orange-sub {
+            font-size: 1.05rem;
+            color: var(--accent-orange);
+            margin-bottom: 0.6rem;
+            font-weight: 300;
+        }
+
+        .artist-info-col .meta-tag {
+            font-size: 0.82rem;
+            font-weight: 300;
+            color: var(--text-secondary);
+            margin-bottom: 1.2rem;
+        }
+
+        .bio-container {
+            position: relative;
+            width: 100%;
+        }
+
+        .bio-p {
+            font-size: 0.92rem;
+            font-weight: 300;
+            line-height: 1.9;
+            color: var(--text-primary);
+            text-align: justify;
+            text-justify: inter-word;
+            overflow: hidden;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            transition: all 0.3s ease;
+        }
+
+        .bio-p.expanded {
+            -webkit-line-clamp: unset;
+        }
+
+        .read-more-btn {
+            background: none;
+            border: none;
+            color: var(--accent-orange);
+            font-size: 0.85rem;
+            font-weight: 700;
+            cursor: pointer;
+            margin-top: 8px;
+            padding: 0;
+            display: inline-block;
+        }
+
+        .read-more-btn:hover {
+            text-decoration: underline;
+        }
+
+        .artist-media-col {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .single-square-artist-img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            object-position: center 25%;
+            border-radius: 10px;
+            border: 1px solid var(--border-dark);
+            background-color: var(--bg-card);
+            cursor: pointer;
+            transition: transform 0.3s ease, border-color 0.3s ease;
+            filter: grayscale(100%);
+        }
+
+        .single-square-artist-img:hover {
+            transform: scale(1.02);
+            filter: grayscale(0%);
+            border-color: var(--accent-orange);
+        }
+
+        .project-section {
+            border-top: 1px solid var(--border-dark);
+            padding-top: 2rem;
+            margin-top: 1rem;
+        }
+
+        .project-section h2 {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--accent-orange);
+            margin-bottom: 1.2rem;
+        }
+
+        .project-section .project-text-content p {
+            font-size: 0.95rem;
+            font-weight: 300;
+            line-height: 1.9;
+            color: var(--text-primary);
+            text-align: justify;
+            text-justify: inter-word;
+            margin-bottom: 1.2rem;
+        }
+
+        .media-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+            margin-top: 1.5rem;
+        }
+
+        .media-grid.two-cols {
+            grid-template-columns: repeat(2, 1fr);
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .media-item img {
+            width: 100%;
+            height: 240px;
+            object-fit: contain;
+            background: var(--bg-card);
+            border-radius: 8px;
+            border: 1px solid var(--border-dark);
+            cursor: pointer;
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+
+        .media-item img:hover {
+            transform: scale(1.02);
+            border-color: var(--accent-orange);
+        }
+
+        .video-box, .audio-box {
+            background: var(--bg-card);
+            padding: 1.2rem;
+            border-radius: 8px;
+            border: 1px solid var(--border-dark);
+            margin-top: 1.5rem;
+        }
+
+        .video-box video {
+            width: 100%;
+            max-height: 520px;
+            border-radius: 6px;
+            border: 1px solid var(--border-dark);
+            outline: none;
+            background: var(--bg-card);
+        }
+
+        .audio-box audio {
+            width: 100%;
+            filter: invert(0.9) hue-rotate(180deg);
+            outline: none;
+        }
+
+        .lightbox-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.95);
+            z-index: 2000;
+            display: none;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+        }
+
+        .lightbox-overlay img {
+            max-width: 90vw;
+            max-height: 90vh;
+            object-fit: contain;
+            border-radius: 6px;
+            box-shadow: 0 0 30px rgba(0,0,0,0.8);
+        }
+
+        .close-lightbox {
+            position: absolute;
+            top: 1.5rem;
+            right: 2rem;
+            color: #fff;
+            font-size: 2rem;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        @media (max-width: 992px) {
+            .navbar, .hero-section, .artists-section, .about-section, .site-footer {
+                padding: 1.5rem;
+            }
+
+            .hero-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .nav-links {
+                position: static;
+                transform: none;
+            }
+
+            .artists-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .artist-profile-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .media-grid, .media-grid.two-cols {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .modal-content {
+                padding: 3rem 1.5rem 1.5rem 1.5rem;
+            }
+
+            .site-footer {
+                flex-direction: column-reverse;
+                align-items: center;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .media-grid, .media-grid.two-cols {
+                grid-template-columns: 1fr;
+            }
+
+            .artists-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Navigation -->
+    <header class="navbar">
+        <div class="logo-container">
+            <div class="logo">
+                <h2 id="logoTitle">Beyond the Lens</h2>
+                <span id="logoSub">ما وراء العدسة</span>
+            </div>
+        </div>
+
+        <nav class="nav-links">
+            <a href="#home" id="navHome">الرئيسية</a>
+            <a href="#about" id="navAbout">من نحن</a>
+            <a href="#artists-section" id="navArtists">الفنانون</a>
+            <a href="#contact" id="navContact">تواصل معنا</a>
+        </nav>
+
+        <div class="header-actions">
+            <button class="lang-btn" onclick="toggleLanguage()">
+                <span>🌐</span>
+                <span id="langLabel">EN</span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Banner Hero Section -->
+    <section id="home" class="hero-section">
+        <div class="hero-grid">
+            <div class="hero-right-content">
+                <div class="location-tag" id="heroLoc">غزة، فلسطين 2025</div>
+                <h1 class="main-title" id="heroTitle">Beyond the Lens</h1>
+                <h3 class="sub-title" id="heroSubTitle">ما وراء العدسة</h3>
+                <p class="description" id="heroDesc">
+                    الفضاء الذي نتوقف فيه عن النظر لنبدأ بالرؤية؛ هنا ليست الصورة مجرد توثيق لحدث مضى، بل هي الأثر الباقي من روح واجهت الفناء.
+                </p>
+                <a href="#artists-section" class="btn btn-primary" id="heroBtn">تعرف على الفنانين</a>
+            </div>
+
+            <div class="hero-left-media">
+                <img src="الصور/1 (6).jpeg" alt="غرفة الاستماع" class="styled-square-img" onclick="openLightbox('الصور/1 (6).jpeg')">
+                <img src="الصور/1 (5).jpeg" alt="معرض غزة" class="styled-square-img" onclick="openLightbox('الصور/1 (5).jpeg')">
+            </div>
+        </div>
+    </section>
+
+    <!-- Mid Info Bar -->
+    <div class="bottom-info-bar">
+        <div id="footLoc">غزة، فلسطين</div>
+        <div id="footSupport">بدعم من مؤسسة عبد المحسن القطان</div>
+        <div id="footGrant">منحة تحولات 2025</div>
+    </div>
+
+    <!-- About Us Section -->
+    <section id="about" class="about-section">
+        <div class="about-container">
+            <div class="about-right-col">
+                <div class="about-tag-header" id="aboutTag">من نحن</div>
+                <h2 class="about-big-title" id="aboutBigTitle">خلف الزجاج، تحت الضوء</h2>
+                <h3 class="about-sub-heading" id="aboutSubHead">خلف بريق الزجاج، وتحت وطأة الضوء، ثمة حكاية لم تقتنصها الصورة بعد.</h3>
+
+                <p class="about-paragraph" id="aboutP1">
+                    نحن لا نعرض لكم "لقطات"، بل نعرض "الندوب" التي تركتها تلك اللحظات في مخيلة من عاشوها. هنا، ليست الصورة مجرد توثيق لحدثٍ مضى، بل هي الأثر الباقي من روحٍ واجهت الفناء، ونتاجٌ مركبٌ يمتزج فيه وجع الفقد بعنفوان البطولة، وتتجلى فيه ملامح اللاعدالة كوشمٍ لا يمحوه الزمن.
+                </p>
+
+                <p class="about-paragraph" id="aboutP2">
+                    خمسة فنانين من غزة يلتقون عبر تخصصات مختلفة: الفن البصري، الأداء، التصوير الفوتوغرافي، الرسم، والكتابة؛ ليرسموا ويشهدوا عبر ممارستهم الفنية. كل عمل يفتح نافذة مختلفة على الحقيقة ذاتها التي لم تُقَل بعد.
+                </p>
+
+                <div class="about-support-card">
+                    <div class="sup-title" id="aboutSupTitle">بدعم من</div>
+                    <div class="sup-desc" id="aboutSupDesc">مؤسسة عبد المحسن القطان — منحة تحولات 2025</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Artists Grid Section -->
+    <section id="artists-section" class="artists-section">
+        <h2 class="section-title" id="sectionTitle">الفنانون</h2>
+
+        <div class="artists-grid">
+            <!-- عبد الله الرزي -->
+            <div class="artist-card" onclick="openArtistModal('abdullah')">
+                <span class="artist-badge" id="badge-abdullah">فنان تشكيلي</span>
+                <img src="الصور/عبد الله.jpg" alt="عبد الله جميل الرزي">
+                <div class="artist-card-overlay">
+                    <h3 id="card-name-abdullah">عبد الله جميل الرزي</h3>
+                    <p id="card-proj-abdullah">صورة منتهية الصلاحية</p>
+                </div>
+            </div>
+
+            <!-- أميرة حمدان -->
+            <div class="artist-card" onclick="openArtistModal('amera')">
+                <span class="artist-badge" id="badge-amera">فنانة وكاتبة</span>
+                <img src="الصور/اميرة.jpg" alt="أميرة جمال حمدان">
+                <div class="artist-card-overlay">
+                    <h3 id="card-name-amera">أميرة جمال حمدان</h3>
+                    <p id="card-proj-amera">لا يوجد إشارة</p>
+                </div>
+            </div>
+
+            <!-- حسين الجرجاوي -->
+            <div class="artist-card" onclick="openArtistModal('hussain')">
+                <span class="artist-badge" id="badge-hussain">مصور فوتوغرافي</span>
+                <img src="الصور/لقطة شاشة 2026-08-24 175323.png" alt="حسين أيمن الجرجاوي">
+                <div class="artist-card-overlay">
+                    <h3 id="card-name-hussain">حسين أيمن الجرجاوي</h3>
+                    <p id="card-proj-hussain">ما بعد النجاة</p>
+                </div>
+            </div>
+
+            <!-- أيمن الحصري -->
+            <div class="artist-card" onclick="openArtistModal('ayman')">
+                <span class="artist-badge" id="badge-ayman">فنان أدائي</span>
+                <img src="الصور/ايمن.jpg" alt="أيمن صالح الحصري">
+                <div class="artist-card-overlay">
+                    <h3 id="card-name-ayman">أيمن صالح الحصري</h3>
+                    <p id="card-proj-ayman">الذي رأى أكثر مما يجب</p>
+                </div>
+            </div>
+
+            <!-- وعد البياري -->
+            <div class="artist-card" onclick="openArtistModal('waed')">
+                <span class="artist-badge" id="badge-waed">فنانة تشكيلية</span>
+                <img src="الصور/وعد.jpg" alt="وعد رزق البياري">
+                <div class="artist-card-overlay">
+                    <h3 id="card-name-waed">وعد رزق البياري</h3>
+                    <p id="card-proj-waed">إنه ليس ضبابًا</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Us Section -->
+    <section id="contact" class="contact-section">
+        <div class="contact-tag" id="contactTag">تواصل معنا</div>
+        <h2 class="contact-title" id="contactTitle">اتصل بنا</h2>
+        <p class="contact-subtitle" id="contactSub">
+            للاستفسارات الصحفية، التعاون، زيارة المعرض، أو أي أسئلة حول المشروع والفنانين المشاركين، نرحب برسالتكم.
+        </p>
+
+        <a href="https://wa.me/970599628518" target="_blank" class="whatsapp-btn">
+            <i class="fa-brands fa-whatsapp" style="font-size: 28px; color: #121614;"></i>
+            <span id="waBtnText">راسلنا على واتساب</span>
+        </a>
+    </section>
+
+    <!-- Site Footer -->
+    <footer class="site-footer">
+        <div class="footer-links">
+            <a href="#contact" id="footLinkContact">تواصل معنا</a>
+            <a href="#artists-section" id="footLinkArtists">الفنانون</a>
+            <a href="#about" id="footLinkAbout">من نحن</a>
+            <a href="#home" id="footLinkHome">الرئيسية</a>
+        </div>
+
+        <div class="footer-brand">
+            <h3 id="footBrandTitle">Beyond the Lens</h3>
+            <p id="footBrandSub">ما وراء العدسة</p>
+            <span id="footBrandGrant">بدعم من مؤسسة عبد المحسن القطان — منحة تحولات 2025</span>
+        </div>
+    </footer>
+
+    <!-- Pop-up Modal Container -->
+    <div id="artistModal" class="modal-overlay" onclick="closeModalOnOverlay(event)">
+        <div class="modal-content">
+            <button class="close-modal-btn" onclick="closeArtistModal()">✕</button>
+            <div id="modalInnerBody"></div>
+        </div>
+    </div>
+
+    <!-- Image Lightbox Modal -->
+    <div id="lightboxModal" class="lightbox-overlay" onclick="closeLightbox()">
+        <span class="close-lightbox">&times;</span>
+        <img id="lightboxImg" src="" alt="Full Preview">
+    </div>
+
+    <!-- JavaScript Interactivity -->
+    <script>
+        let currentLang = 'ar';
+        let currentActiveArtist = null;
+
+        const translations = {
+            ar: {
+                logoTitle: "Beyond the Lens",
+                logoSub: "ما وراء العدسة",
+                navHome: "الرئيسية",
+                navAbout: "من نحن",
+                navArtists: "الفنانون",
+                navContact: "تواصل معنا",
+                heroLoc: "غزة، فلسطين 2025",
+                heroTitle: "Beyond the Lens",
+                heroSubTitle: "ما وراء العدسة",
+                heroDesc: "الفضاء الذي نتوقف فيه عن النظر لنبدأ بالرؤية؛ هنا ليست الصورة مجرد توثيق لحدث مضى، بل هي الأثر الباقي من روح واجهت الفناء.",
+                heroBtn: "تعرف على الفنانين",
+                sectionTitle: "الفنانون",
+                footLoc: "غزة، فلسطين",
+                footSupport: "بدعم من مؤسسة عبد المحسن القطان",
+                footGrant: "منحة تحولات 2025",
+                audioLabel: "المقطع الصوتي المرفق بالعمل:",
+                videoLabel: "مقطع الفيديو الخاص بالعمل الأدائي:",
+                readMore: "عرض المزيد 🠋",
+                readLess: "عرض أقل 🠉",
+                aboutTag: "من نحن",
+                aboutBigTitle: "خلف الزجاج، تحت الضوء",
+                aboutSubHead: "خلف بريق الزجاج، وتحت وطأة الضوء، ثمة حكاية لم تقتنصها الصورة بعد.",
+                aboutP1: "نحن لا نعرض لكم \"لقطات\"، بل نعرض \"الندوب\" التي تركتها تلك اللحظات في مخيلة من عاشوها. هنا، ليست الصورة مجرد توثيق لحدثٍ مضى، بل هي الأثر الباقي من روحٍ واجهت الفناء، ونتاجٌ مركبٌ يمتزج فيه وجع الفقد بعنفوان البطولة، وتتجلى فيه ملامح اللاعدالة كوشمٍ لا يمحوه الزمن.",
+                aboutP2: "خمسة فنانين من غزة يلتقون عبر تخصصات مختلفة: الفن البصري، الأداء، التصوير الفوتوغرافي، الرسم، والكتابة؛ ليرسموا ويشهدوا عبر ممارستهم الفنية. كل عمل يفتح نافذة مختلفة على الحقيقة ذاتها التي لم تُقَل بعد.",
+                aboutSupTitle: "بدعم من",
+                aboutSupDesc: "مؤسسة عبد المحسن القطان — منحة تحولات 2025",
+                contactTag: "تواصل معنا",
+                contactTitle: "اتصل بنا",
+                contactSub: "للاستفسارات الصحفية، التعاون، زيارة المعرض، أو أي أسئلة حول المشروع والفنانين المشاركين، نرحب برسالتكم.",
+                waBtnText: "راسلنا على واتساب",
+                footLinkHome: "الرئيسية",
+                footLinkAbout: "من نحن",
+                footLinkArtists: "الفنانون",
+                footLinkContact: "تواصل معنا",
+                footBrandTitle: "Beyond the Lens",
+                footBrandSub: "ما وراء العدسة",
+                footBrandGrant: "بدعم من مؤسسة عبد المحسن القطان — منحة تحولات 2025"
+            },
+            en: {
+                logoTitle: "Beyond the Lens",
+                logoSub: "BEYOND THE LENS",
+                navHome: "Home",
+                navAbout: "About Us",
+                navArtists: "Artists",
+                navContact: "Contact",
+                heroLoc: "Gaza, Palestine 2025",
+                heroTitle: "Beyond the Lens",
+                heroSubTitle: "Beyond the Lens",
+                heroDesc: "The space where we stop looking and begin seeing. Here, the image is not merely documentation of a past event—it is the remaining trace of a soul that faced extinction.",
+                heroBtn: "Meet the Artists",
+                sectionTitle: "Artists",
+                footLoc: "Gaza, Palestine",
+                footSupport: "Supported by A. M. Qattan Foundation",
+                footGrant: "Tahawwulat Grant 2025",
+                audioLabel: "Audio Track Accompanying the Project:",
+                videoLabel: "Performance Video Track:",
+                readMore: "Read More 🠋",
+                readLess: "Read Less 🠉",
+                aboutTag: "About Us",
+                aboutBigTitle: "Behind Glass, Under Light",
+                aboutSubHead: "Behind the glare of glass, and under the weight of light, lies a story the image has not captured yet.",
+                aboutP1: "We do not show you 'shots'; we show you the 'scars' left by those moments in the imagination of those who lived them. Here, the image is not merely documentation of a past event—it is the remaining trace of a soul that faced extinction.",
+                aboutP2: "Five artists from Gaza unite across different disciplines: visual art, performance, photography, painting, and writing, to bear witness through their artistic practices. Each work opens a distinct aperture onto the unsaid truth.",
+                aboutSupTitle: "Supported by",
+                aboutSupDesc: "A. M. Qattan Foundation — Tahawwulat Grant 2025",
+                contactTag: "Contact Us",
+                contactTitle: "Get In Touch",
+                contactSub: "For press inquiries, collaboration, exhibition visits, or questions about the project and participating artists, we welcome your message.",
+                waBtnText: "Message us on WhatsApp",
+                footLinkHome: "Home",
+                footLinkAbout: "About Us",
+                footLinkArtists: "Artists",
+                footLinkContact: "Contact",
+                footBrandTitle: "Beyond the Lens",
+                footBrandSub: "BEYOND THE LENS",
+                footBrandGrant: "Supported by A. M. Qattan Foundation — Tahawwulat Grant 2025"
+            }
+        };
+
+        const artistsData = {
+            abdullah: {
+                badge: { ar: "فنان تشكيلي", en: "Visual Artist" },
+                name: { ar: "عبد الله جميل الرزي", en: "Abdullah Jamil Al-Rozzi" },
+                subTitle: { ar: "عبد الله الرزي", en: "Abdullah Al-Rozzi" },
+                meta: { ar: "فنان تشكيلي وبصري · غزة، مواليد 1982", en: "Visual & Contemporary Artist · Gaza, b. 1982" },
+                img: "الصور/عبد الله.jpg",
+                bio: {
+                    ar: `ولد في غزة عام 1982، حيث يعيش ويعمل، وحصل على درجة البكالوريوس في التربية الفنية والفنون الجميلة من جامعة الأقصى بغزة عام 2005.<br>
+                         يعمل حالياً في مجال الفنون البصرية، ويستخدم وسائط متعددة تشمل الرسم، التجهيز في الفراغ، النحت، التصوير الفوتوغرافي، الرسم على الجدران والتصميم الداخلي، حيث كان مهتماً بالبحث عن زوايا رؤية جديدة وتوظيفها في خدمة العمل الفني، وتعتبر أعماله الفنية مستوحاه من البيئة المحلية ويتم إعادة صياغتها في صور جديدة.<br>
+                         مهتم حالياً بالبحث عن خامات وأساليب جديدة مستخدمة في أعماله الفنية. شارك الفنان في العديد من المعارض والجوائز، بما في ذلك جائزة لاجونا للفنون في فينيسيا (إيطاليا) 2012، ومعرض جائزة اليابا 2012، كما حصل على الجائزة الثانية لجائزة الفنان الشاب (جائزة حسن حوراني) عام 2010 بدعم وتنظيم مؤسسة القطان. حصل أيضاً على عدة إقامات فنية منها: إقامة في مدينة الفنون بباريس عام 2017 بترشيح من مؤسسة القطان ودعم مؤسسة التعاون والقنصلية الفرنسية، وإقامة في جاليري تاون هاوس بالقاهرة عام 2012 بترشيح من المؤسسة الفلسطينية للفنون ودعم منظمة اليونسكو. عُرِضت بعض أعماله في "موزاييك روم" بالمملكة المتحدة مع مجموعة من الفنانين الفلسطينيين عام 2011، وفي فينيسيا (إيطاليا) عام 2012، وحصل على قائمة الشرف الدولية في مجال القصص من منظمة (المجلس الدولي لكتب الشبان) عام 2006 (IBBY).`,
+                    en: `was born in Gaza in 1982, where he lives and works, and he has earned a BA degree in art education and fine arts from Al-Aqsa University in Gaza in 2005.<br>
+                         He is currently working in the field of visual arts, and uses multiple media including painting, installation, sculpture, photography, wall painting and interior design, as he was interested in the search for new places of view and employ them in the artwork service, and are considered works of art inspired by the local environment and be reformulated new pictures.<br>
+                         Currently interested in the search for new materials and methods used in his art works. The artist has participated in several exhibitions and Prizes, including the Laguna Art Prize in Venice (Italy) 2012. The exhibition / Alyaya prize 2012, also obtained second prize for the Young Artist prize (Hassan Hourani Award) in 2010 to support and organize Qattan Foundation. He has also on several residencies, a residency in the arts city of Paris in 2017 nomination of the Qattan Foundation and the support of Altaawn Foundation and the French Consulate, a residency in the Townhouse Gallery in Cairo in 2012 nomination of the Palestine Foundation for the Arts and the support of the organization UNESCO. Some of his works have been exhibited at the mosaic rooms in the UK with Palestinian artists group in 2011, in Venice (Italy) in 2012, and received a list of international honors in the field stories from IBBY (International Organization for Books for Young People) 2006.`
+                },
+                projectTitle: { ar: "صورة منتهية الصلاحية", en: "Expired Image" },
+                projectDesc: {
+                    ar: `<p>يأتي هذا العمل ليعلن موت الصورة النمطية التي استهلكتها الشاشات ، وليعيد بعث الحقيقة من زوايا لا تدركها العدسات العابرة .</p>
+                         <p>ينطلق هذا المشروع من فرضية "الصورة غير القابلة للعرض " تلك اللحظات التي تتــجاوز قدرة العدســــة التقنية على الإحاطة بالحقيقة، فبينما تكتفي الكاميرا بتجميد السطح، أحاول من خلال الرسم استــعادة الزوايا التي سقطت من إطار الصورة، ورصد تعابير النجاة التي لا تُلتقط بل تُعاش.</p>
+                         <p>هنا، أتحرر من دور المصور لأقف في مكان العدسة نفسها، لكنني لا أكتفي بالتوثيق، بل أوقف الزمن قسـراً وأعيد ترتيب العناصر المشظاة، إنها محاولة لإعادة بناء المشهد من الداخل، حيث تصبح الريشة عيناً ترى ما وراء الضوء والظل، وتلمس الارتجافات التي تفلت من الحساس الرقمي .</p>
+                         <p>هذا العمل ليس مجرد استعراض لرسومات، بل هو محاولة لترميم الذاكرة البصرية، وصياغة "شهــادة بديلة" تعيد للإنسان هيبته في مواجهة الكارثة، بعيداً عن استهلاك الصورة الصحفية المعتادة .</p>`,
+                    en: `<p>this work announces the death of the stereotypical images consumed by screens, seeking to resurrect truth from angles that fleeting lenses fail to perceive .</p>
+                         <p>This project stems from the concept of the "Unviewable Image"—those moments that transcend the camera's technical capacity to grasp the truth. While the lens freezes the surface, I seek through drawing to reclaim the angles that fell outside the frame and to capture expressions of survival that are lived rather than merely recorded.</p>
+                         <p>In this work, I step out of the role of the photographer to stand in place of the lens itself. However, I do not merely document; I forcibly suspend time and rearrange its fragmented elements. It is an attempt to reconstruct the scene from within, where the brush becomes an eye perceiving what lies beyond light and shadow, touching the tremors that escape the digital sensor.</p>
+                         <p>This collection is not just a display of drawings, but an effort to restore visual memory and formulate an "alternative testimony"—one that reinstates human dignity in the face of catastrophe, far from the consumption of conventional photojournalism.</p>`
+                },
+                images: [
+                    "الصور/WhatsApp Image 2026-08-24 at 6.02.22 PM.jpeg",
+                    "الصور/WhatsApp Image 2026-08-24 at 6.02.22 PM (1).jpeg",
+                    "الصور/WhatsApp Image 2026-08-24 at 6.02.22 PM (2).jpeg",
+                    "الصور/1 (16).jpeg", "الصور/1 (4).jpeg", "الصور/1 (12).jpeg", "الصور/1 (13).jpeg", "الصور/1 (14).jpeg", "الصور/1 (15).jpeg",
+                    "الصور/1 (17).jpeg", "الصور/1 (18).jpeg", "الصور/1 (19).jpeg", "الصور/1 (20).jpeg", "الصور/1 (21).jpeg", "الصور/1 (22).jpeg", "الصور/1 (23).jpeg", "الصور/1 (24).jpeg",
+                    "الصور/1 (37).jpeg", "الصور/1 (38).jpeg", "الصور/1 (39).jpeg", "الصور/1 (40).jpeg", "الصور/1 (41).jpeg", "الصور/1 (25).jpeg", "الصور/1 (26).jpeg", "الصور/1 (27).jpeg", "الصور/1 (28).jpeg", "الصور/1 (29).jpeg",
+                    "الصور/1 (31).jpeg", "الصور/1 (32).jpeg", "الصور/1 (33).jpeg", "الصور/1 (34).jpeg", "الصور/1 (35).jpeg", "الصور/1 (36).jpeg", "الصور/1 (30).jpeg"
+                ]
+            },
+            amera: {
+                badge: { ar: "فنانة وكاتبة", en: "Artist & Writer" },
+                name: { ar: "أميرة جمال حمدان", en: "Amera Jamal Hamdan" },
+                subTitle: { ar: "أميرة حمدان", en: "Amera Hamdan" },
+                meta: { ar: "فنانة وكاتبة فلسطينية · غزة، مواليد 1988", en: "Palestinian Artist & Writer · Gaza, b. 1988" },
+                img: "الصور/اميرة.jpg",
+                bio: {
+                    ar: `(مواليد 1988) هي فنانة وكاتبة فلسطينية تقيم وتعمل في غزة. تركز ممارستها الفنية والثقافية بشكل عميق على السياقات المجتمعية والسياسية، حيث تسعى من خلال مشاريعها مثل "فن مناصر"، "أبواب"، "قوة ربما تذوب"، و"شكل فني" إلى تطويع الفن كأداة للمساءلة والتغيير.<br>
+                         تُعرف حمدان بدورها القيادي في المبادرات المجتمعية، حيث شاركت في إدارة مبادرة "بيتكم عامر" التي تهدف إلى إحياء الأماكن التاريخية وتحويلها إلى فضاءات ثقافية ناعمة. لم تكتفِ بالجانب النظري، بل ساهمت في صياغة وتنفيذ خطط الإدارة الثقافية والبحث الفني لتطوير أدوات تعبيرية معاصرة تتناول أعمالها البصرية قضايا ملحة كالمشاركة السياسية للشباب ودور المرأة في المجتمع الفلسطيني. وخلال فترات الحرب والنزوح، برز دورها كفنانة فاعلة ميدانياً، حيث نفذت أنشطة تفاعلية وحكواتية وصناعة ألعاب للأطفال والعائلات داخل المخيمات، مؤكدة على دور الفن كفعل صمود يومي.`,
+                    en: `(b. 1988) is a Palestinian artist and writer based in Gaza. Her multidisciplinary practice is deeply rooted in social and political contexts, utilizing art as a vehicle for advocacy and engagement. This is reflected in her key projects, including Art Advocate, Abwab (Doors), A Power that Might Melt, and Artistic Paralysis.<br>
+                         Hamdan is a prominent figure in community-based art initiatives. She co-managed the "Beitkom Amer" initiative, which focuses on preserving historical sites by repurposing them into active artistic and cultural hubs. Her work extends beyond creation into cultural management, where she has authored and implemented strategic plans focused on artistic research and the development of contemporary creative tools.<br>
+                         Her visual projects tackle critical themes such as youth political participation and the role of women within Palestinian society. Most recently, amidst the challenges of war and displacement, Hamdan has dedicated her practice to interactive field activities—ranging from toy-making to storytelling—engaging with children and families in displacement camps to sustain cultural life under duress.`
+                },
+                projectTitle: { ar: "لا يوجد إشارة", en: "No Signal" },
+                projectDesc: {
+                    ar: `<p>بين ضجيج الضوضاء وانقطاع البث، يبرز هذا العــمل كمحاولة لرصـــد لحظة التلاشـي ،حيث تفشل الإشــارة، ويهبط صمتٌ ثقيل يمزق أوصــال الوقت.</p>
+                         <p>هنا، يتشظى الكون وتُســـحق اللغة مع غياب الإشارة ، فلا تتبقـى كلمات ولا حتى أسماء .</p>
+                         <p>في هذا الفضاء، يغيب التــوازن، ويختفي الإيقاع الطبيعي، ويصبح التكرار لغزاً غير قابل للفهم، بينما ينتشر الصمت خانقاً كقنبلة غازية، يطــرح العمل تساؤلاً جوهرياً ومؤلماً: كيف نُحمل الشهادة حين تُقطع أطرافها؟ وكيف نُوصل الحقيقة حين تُجبرنا المسامع على مواجهة الفراغ؟</p>
+                         <p>إن هذا العمل يضع علامة مساواة بين انقطاع الصـوت وانقطاع الحقيقة، فما تسمعونه هنا ليس توثيقاً لما حدث، بل هو تجسيدٌ لما مُنع أن يُسمع .</p>`,
+                    en: `<p>Between the static of noise and the severance of broadcast, this work emerges as an exploration of the moment of vanishing—where signals fail and a heavy silence descends to tear the fabric of time. Here, the universe fragments, and language itself is crushed alongside the signal, leaving behind no words, not even names.</p>
+                         <p>In this void, balance is lost, natural rhythms disappear, and repetition becomes an indecipherable enigma, while silence spreads, suffocating like a gas bomb. The work poses a fundamental and painful question: How can we carry a testimony when the testimony itself has been severed? How can we convey truth when what we hear forces us to confront an absolute void?</p>
+                         <p>This piece equates the loss of sound with the loss of truth. What is heard here is not a recording of what happened, but rather a manifestation of what was prevented from being heard.</p>`
+                },
+                audio: "الصور/لا يوجد اشاره.mp3.mpeg"
+            },
+            hussain: {
+                badge: { ar: "مصور فوتوغرافي", en: "Photographer" },
+                name: { ar: "حسين أيمن الجرجاوي", en: "Hussain Ayman Al-Jerjawi" },
+                subTitle: { ar: "حسين الجرجاوي", en: "Hussain Al-Jerjawi" },
+                meta: { ar: "فنان بصري ورسام ومصور · غزة", en: "Visual Artist, Painter & Photographer · Gaza" },
+                img: "الصور/لقطة شاشة 2026-08-24 175323.png",
+                bio: {
+                    ar: `فنان بصري ورسام ومصور فلسطيني من مواليد مدينة غزة. تتناول ممارسته الفنية قضايا الهوية، الذاكرة، والمرونة المجتمعية مستخدماً الفن البصري وسيلةً لرواية القصص وتوثيق تفاصيل الحياة اليومية وتطلعات مجتمعه.<br>
+                         يتميز بأسلوبه الفريد في إعادة تدوير المواد غير التقليدية وتحويلها إلى أعمال فنية؛ إذ يحوّل أكياس الدقيق وصناديق المساعدات إلى رموز بصرية صارخة تجسد الكرامة والمقاومة. يطمح الجرجاوي من خلال مشروعه الإبداعي إلى بناء جسور تواصل إنسانية، وتخليد حكايا شعبه وحمايتها من النسيان لتلهم الأجيال القادمة.`,
+                    en: `is a Palestinian visual artist, painter, and photographer born in Gaza City. His artistic practice explores themes of identity, memory, and community resilience, utilizing visual art as a medium for storytelling to document daily realities and collective aspirations.<br>
+                         He is distinguished by his unique approach to upcycling non-traditional materials, transforming flour sacks and aid boxes into powerful visual symbols of dignity and resistance. Through his creative projects, Al-Jerjawi aspires to build bridges of human connection, preserving his people's narratives and shielding them from oblivion to inspire future generations.`
+                },
+                projectTitle: { ar: "ما بعد النجاة", en: "Beyond Survival" },
+                projectDesc: {
+                    ar: `<p>في غزة، لا يُقصف البشر وحدهم، بل تقصف وظائف الأشياء أيضاً. السفينة التي خُلقت لتشق البحر، لتحمل الصيادين نحو رزقهم، ولتعود محملة بالحياة، تبدو هنا وقد جُرّدت من معناها. لم تعد سفينة بالمعنى الكامل للكلمة؛ صارت هيكلاً مثقلاً بالماء والصدأ، عالقة بين اليابسة والبحر، كأنها لا تنتمي لأي منهما يمكن أن تحمل الفكرة بعداً رمزياً أوسع الفقد في غزة لا يعني الموت فقط، بل تحوّل الأشياء الحيّة وظيفياً إلى بقايا. كما يفقد الناس بيوتهم وأدوارهم وحياتهم اليومية، تفقد القوارب أيضاً ذاكرتها البحرية. تصبح شاهدة على زمن توقف، وعلى حرب جعلت حتى الأشياء تبدو وكأنها في حداد على نفسها.</p>
+                         <p>تعكس الصورة لحظة من الوعي لدى الاطفال خلال العدوان بشكل تدريجي تبدأ من الطفلة الصغيرة التي تبدو ملامحها مختفية جزئياً والتي لا تدرك العدوان أو المشهد تماماً، بينما الوسطى توحي بحالة من الاستغراب والخوف، أما الطفلة الكبرى تظهر بملامح واضحة تماماً تدرك أن ما يفصلها عن الموت هو قطعة نايلون كبيرة. وتقف الألواح الإسمنتية فوق التلة كأنها بقايا صامتة من حرب مرّت من هنا تبدو متفرقة وغير مكتملة، لكنها تحمل أثر القوة والدمار الذي تركته الحرب في غزة. الأرض الجافة والمسارات المحفورة حولها تعكس قسوة المكان، بينما يبقى المشهد شاهدًا على ما خلفته الآليات العسكرية من خراب وعزل. رغم الصمت الذي يحيط بالصورة، إلا أنها تحكي عن ذاكرة ثقيلة، وعن أرض ما زالت تحمل آثار الحرب فوق تفاصيلها اليومية.</p>`,
+                    en: `<p>In Gaza, it is not only humans who are targeted; the very purpose of objects is bombed into obsolescence. A ship, created to cleave through the sea and carry fishermen toward their livelihood, only to return laden with life, now stands stripped of its meaning. It is no longer a ship in the truest sense; it has become a hull burdened by water and rust, stranded between land and sea, belonging to neither. This concept carries a broader symbolic dimension: loss in Gaza is not merely death, but the functional mutation of living things into remnants. Just as people lose their homes, their roles, and their daily lives, boats too lose their maritime memory. They become monuments to a frozen time, and to a war that has left even inanimate objects mourning their own existence.</p>
+                         <p>Through this lens, the imagery captures a gradual awakening of awareness among children during the aggression. It begins with the youngest girl, whose features are partially obscured, completely unaware of the conflict or the gravity of the scene. In the center, the middle child embodies a state of bewilderment and fear. Meanwhile, the eldest girl appears with absolute clarity, her features fully realizing that the only thing separating her from death is a fragile sheet of nylon.</p>
+                         <p>Framing this stark reality, concrete slabs stand atop the hill like silent relics of a war that swept through this place. Scattered and incomplete, they bear the violent imprint of destruction left in Gaza. The arid earth and the deeply rutted tracks surrounding them reflect the harshness of the landscape, while the scene stands as a grim testament to the devastation and isolation left behind by military vehicles. Despite the enveloping silence, the entire composition speaks of a heavy memory, and of a land that continues to carry the scars of war etched into its daily existence.</p>`
+                },
+                images: [
+                    "الصور/photo_5217955051110873002_y.jpg", 
+                    "الصور/1 (2).jpeg", 
+                    "الصور/1 (3).jpeg"
+                ],
+                bottomImages: [
+                    "الصور/1 (1).jpeg", 
+                    "الصور/1 (42).jpeg"
+                ]
+            },
+            ayman: {
+                badge: { ar: "فنان أدائي", en: "Performance Artist" },
+                name: { ar: "أيمن صالح الحصري", en: "Ayman Salah Al-Hosary" },
+                subTitle: { ar: "أيمن صالح الحصري", en: "Ayman Salah Al-Hosary" },
+                meta: { ar: "فنان تشكيلي معاصر · غزة", en: "Contemporary Visual Artist · Gaza" },
+                img: "الصور/ايمن.jpg",
+                bio: {
+                    ar: `فنان تشكيلي معاصر يعيش في مدينة غزة حاصل على بكالوريوس في الفنون الجميلة من جامعة الأقصى بغزة 2010 ، متخصص وممارس لفن الكاليجرافي وفن الأداء وله أعمال وتجارب في النحت والأعمال التركيبية والرسم وفن الشارع ويحاول البحث في ما هو جديد في عالم الفنون البصرية ، أقام معرضاً فردياً "شيء من" في المعهد الثقافي الفرنسي وممول من مؤسسة القطان وهو معرض نحتي تركيبي يحاكي فترة طويلة مررنا بها هنا في غزة منذ عام 2006 حتى أكتوبر 2023 وهي فترة طويلة من الحصار والانقسام الداخلي أثر على كل جوانب حياتنا الاجتماعية والثقافية والمهنية وغيرها من الجوانب التي أثرت علينا كمدنيين لا علاقة لنا بكل ما يحدث في السياسة ، حصل أيضاً على منحة إقامة فنية في محترف شبابيك كان نتاجها مجموعة لوحات خط عربي مدموج بفن التطريز ، وشارك في العديد من المعارض الجماعية والورش الفنية مع مجموعة "التقاء للفن المعاصر" شاركت أعماله في فلسطين وبعض الدول الأوروبية وأمريكا وغيرها من البلدان حول العالم.`,
+                    en: `A contemporary visual artist living in Gaza City, he earned his Bachelor's degree in Fine Arts from Al-Aqsa University in 2010. Al-Husari is a specialist and practitioner of calligraphy and performance art, with further experience in sculpture, installation art, painting, and street art. He is constantly exploring new frontiers within the world of visual arts.<br>
+                         He held a solo exhibition titled "Something Of" at the French Cultural Institute, funded by the A.M. Qattan Foundation. This sculptural and installation-based exhibition reflects on the long period Gaza has endured from 2006 until October 2023—a time marked by siege and internal division that has impacted every social, cultural, and professional aspect of life, specifically for civilians caught in the crossfire of politics.<br>
+                         Additionally, he was awarded an art residency at the Shabamik Studio, which resulted in a series of works merging Arabic calligraphy with traditional embroidery. Al-Husari has participated in numerous group exhibitions and art workshops with the "Eltiqa Group for Contemporary Art," and his work has been exhibited across Palestine, Europe, the United States, and other countries worldwide.`
+                },
+                projectTitle: { ar: "الذي رأى أكثر مما يجب", en: "The One Who Saw Too Much" },
+                projectDesc: {
+                    ar: `<p>ينطلق هذا العمل الأدائي من سؤالٍ مؤلم: ماذا يحدث لمن يقف خلف الكاميرا طويلًا أمام الموت؟</p>
+                         <p>في الحروب، تتحول العدسة إلى شاهدٍ دائم على الفقد، ويُختزل المصوّر الصحفي في كونه ناقلًا للحدث، عينًا توثّق، وأداةً تحفظ الصورة قبل أن تختفي. لكن هذا العمل يحاول استعادة الإنسان المختبئ خلف الكاميرا؛ ذلك الجسد المُنهك الذي حمل المشاهد داخله بدل أن يتركها في الذاكرة الرقمية ..</p>
+                         <p>يستحضر الأداء الأثر النفسي المتراكم الذي تتركه الحرب على المصوّر: الأصوات التي لا تنطفئ، الوجوه التي تعود أثناء النوم، والحركة القسرية بين التوثيق والانهيار الداخلي. فالصورة التي يلتقطها لا تنتهي عند لحظة التصوير، بل تستمر في مطاردته ككابوس متكرر، يعيد إنتاج الفقد داخل وعيه مرارًا ..</p>
+                         <p>لا يتعامل العمل مع المصوّر كبطلٍ خارق، بل كإنسان هشّ، مُحمّل بذاكرة بصرية قاسية، يعيش تناقضًا دائمًا بين واجبه المهني وحساسيته الإنسانية. ومن خلال الجسد، والصوت، والإيقاع البطيء، ومساحات الصمت، يحاول الأداء كشف العبء غير المرئي الذي يحمله أولئك الذين وثّقوا الكارثة بينما كانوا جزءًا منها .</p>`,
+                    en: `<p>This performance piece departs from a painful question: What happens to the person behind the lens when they stand before death for too long?</p>
+                         <p>In war, the lens becomes a permanent witness to loss. The photojournalist is often reduced to a mere conduit for events—an eye that documents and a tool that preserves the image before it fades. However, this work seeks to reclaim the human hidden behind the camera that exhausted body that carried the scenes within itself instead of leaving them behind in digital memory.</p>
+                         <p>The performance evokes the cumulative psychological impact war leaves on the photographer: the sounds that never dim, the faces that return in sleep, and the forced oscillation between documentation and internal collapse. The image captured does not end at the moment the shutter clicks; it continues to haunt like a recurring nightmare, reproducing loss within the consciousness over and over again.</p>
+                         <p>The work does not treat the photographer as a superhero, but as a fragile human being burdened with a harsh visual memory, living in constant contradiction between professional duty and human sensitivity. Through the body, voice, slow rhythm, and pockets of silence, the performance attempts to reveal the invisible weight carried by those who documented the catastrophe while being a part of it.</p>`
+                },
+                videoFile: "الصور/ايمن.mp4"
+            },
+            waed: {
+                badge: { ar: "فنانة تشكيلية", en: "Visual Artist" },
+                name: { ar: "وعد رزق البياري", en: "Waed Rizq Al-Biyari" },
+                subTitle: { ar: "وعد رزق البياري", en: "Waed Rizq Al-Biyari" },
+                meta: { ar: "فنانة تشكيلية ومصممة داخلية · غزة، مواليد 2004", en: "Visual Artist & Interior Designer · Gaza, b. 2004" },
+                img: "الصور/وعد.jpg",
+                bio: {
+                    ar: `فنانة تشكيلية ومصممة داخلية من مواليد غزة عام ٢٠٠٤. تدرس تخصص الديكور والتصميم الداخلي في كلية الفنون الجميلة بجامعة الأقصى، تشغل عضوية نادي الفنون البصرية في مركز القطان الثقافي وفريق "بنفسج" التابع لمؤسسة تامر لتعليم المجتمع.<br>
+                         صقلت مهاراتها عبر ورش مكثفة في النحت والرسم والتصوير وصناعة الدمى. توّجت مسيرتها بالفوز بجائزة "سيدة الإنسانية" العالمية عام ٢٠٢٢ عن لوحتها "الأطفال ضحايا العنف والإرهاب". تؤمن بقوة الفن كأداة للدعم النفسي والتعبير الحر والتعافي المجتمعي.`,
+                    en: `A visual artist and interior designer born in Gaza (2004), currently pursuing her degree in Decor and Interior Design at Al-Aqsa University's Faculty of Fine Arts. She is an active member of the Visual Arts Club at the A.M. Qattan Foundation and the 'Banafsej' team at the Tamer Institute for Community Education.<br>
+                         She has honed her skills through intensive workshops spanning sculpture, painting, photography, and puppetry, and has participated in numerous group exhibitions. In 2022, her artistic journey was marked by winning the international Madame Humanité Award for her painting titled Children: Victims of Violence and Terrorism. Centering her practice around humanitarian causes, she firmly believes in the power of art as a vital tool for psychological support, free expression, and community healing.`
+                },
+                projectTitle: { ar: "إنه ليس ضبابًا", en: "That is not fog" },
+                projectDesc: {
+                    ar: `<p>مشروع بصري مستوحى من مشاهد حقيقية من الحرب، يضع المتلقي داخل تجربة تساؤلية: كيف تصبح الرؤية بعد كسر عدسة العين؟</p>
+                         <p>تنطلق الأعمال من قصة صحفي فلسطيني كسر الاحتلال عدسة كاميرته، ثم عدسة عينه، في محاولة لكسر التوثيق ومنع الصورة من أن تصل واضحة وكاملة.</p>
+                         <p>ومن هنا جاءت فكرة المشروع: رؤية مشوشة، ضبابية، وغير مكتملة، كما لو أن الحقيقة نفسها أصبحت معتمة ومربكة وغير مفهومة للعالم. يختفي خلف هذا الغشاء الضبابي الخوف والألم والفقد والموت.</p>
+                         <p>تصبح الضبابية هنا مساحة بين الإخفاء والحماية، فهي تحجب الحقيقة أحياناً، لكنها في الوقت ذاته تحجبنا نحن أيضاً، وتحاول أن تستر هشاشتنا وما أوصلتنا إليه الحرب.</p>`,
+                    en: `<p>A visual project inspired by real-life scenes of war, placing the recipient within an interrogative experience: How does vision transform after the lens of the eye is shattered?</p>
+                         <p>The works originate from the story of a Palestinian journalist whose camera lens was broken by the occupation, followed by the lens of his eye — an attempt to crush documentation and prevent the image from arriving clear and complete.</p>
+                         <p>From this point, the project's concept emerged: a blurred, hazy, and fragmented vision, as if truth itself has become obscured, bewildering, and incomprehensible to the world. Behind this foggy veil hide fear and pain, loss and death.</p>
+                         <p>Here, the blurriness becomes a space between concealment and protection — it hides the truth at times, but also shields us, attempting to veil our fragility and the state to which the war has brought us.</p>`
+                },
+                images: ["الصور/1 (7).jpeg", "الصور/1 (8).jpeg", "الصور/1 (9).jpeg", "الصور/1 (10).jpeg", "الصور/1 (11).jpeg"]
+            }
+        };
+
+        function toggleLanguage() {
+            currentLang = currentLang === 'ar' ? 'en' : 'ar';
+            document.documentElement.lang = currentLang;
+            document.documentElement.dir = currentLang === 'ar' ? 'rtl' : 'ltr';
+
+            const t = translations[currentLang];
+            document.getElementById('logoTitle').innerText = t.logoTitle;
+            document.getElementById('logoSub').innerText = t.logoSub;
+            document.getElementById('navHome').innerText = t.navHome;
+            document.getElementById('navAbout').innerText = t.navAbout;
+            document.getElementById('navArtists').innerText = t.navArtists;
+            document.getElementById('navContact').innerText = t.navContact;
+            document.getElementById('heroLoc').innerText = t.heroLoc;
+            document.getElementById('heroTitle').innerText = t.heroTitle;
+            document.getElementById('heroSubTitle').innerText = t.heroSubTitle;
+            document.getElementById('heroDesc').innerText = t.heroDesc;
+            document.getElementById('heroBtn').innerText = t.heroBtn;
+            document.getElementById('sectionTitle').innerText = t.sectionTitle;
+            document.getElementById('footLoc').innerText = t.footLoc;
+            document.getElementById('footSupport').innerText = t.footSupport;
+            document.getElementById('footGrant').innerText = t.footGrant;
+            document.getElementById('langLabel').innerText = currentLang === 'ar' ? 'EN' : 'عربي';
+
+            document.getElementById('aboutTag').innerText = t.aboutTag;
+            document.getElementById('aboutBigTitle').innerText = t.aboutBigTitle;
+            document.getElementById('aboutSubHead').innerText = t.aboutSubHead;
+            document.getElementById('aboutP1').innerText = t.aboutP1;
+            document.getElementById('aboutP2').innerText = t.aboutP2;
+            document.getElementById('aboutSupTitle').innerText = t.aboutSupTitle;
+            document.getElementById('aboutSupDesc').innerText = t.aboutSupDesc;
+
+            document.getElementById('contactTag').innerText = t.contactTag;
+            document.getElementById('contactTitle').innerText = t.contactTitle;
+            document.getElementById('contactSub').innerText = t.contactSub;
+            document.getElementById('waBtnText').innerText = t.waBtnText;
+            document.getElementById('footLinkHome').innerText = t.footLinkHome;
+            document.getElementById('footLinkAbout').innerText = t.footLinkAbout;
+            document.getElementById('footLinkArtists').innerText = t.footLinkArtists;
+            document.getElementById('footLinkContact').innerText = t.footLinkContact;
+            document.getElementById('footBrandTitle').innerText = t.footBrandTitle;
+            document.getElementById('footBrandSub').innerText = t.footBrandSub;
+            document.getElementById('footBrandGrant').innerText = t.footBrandGrant;
+
+            for (let key in artistsData) {
+                const item = artistsData[key];
+                if (document.getElementById(`badge-${key}`)) {
+                    document.getElementById(`badge-${key}`).innerText = item.badge[currentLang];
+                    document.getElementById(`card-name-${key}`).innerText = item.name[currentLang];
+                    document.getElementById(`card-proj-${key}`).innerText = item.projectTitle[currentLang];
+                }
+            }
+
+            if (currentActiveArtist) {
+                openArtistModal(currentActiveArtist);
+            }
+        }
+
+        function openArtistModal(key) {
+            currentActiveArtist = key;
+            const artist = artistsData[key];
+            if (!artist) return;
+
+            const modalBody = document.getElementById('modalInnerBody');
+            const t = translations[currentLang];
+
+            let mediaHTML = '';
+
+            if (artist.videoFile) {
+                mediaHTML += `<div class="video-box">
+                                    <p style="font-weight:700; margin-bottom:12px; color:var(--accent-orange);">${t.videoLabel}</p>
+                                    <video controls playsinline controlsList="nodownload">
+                                        <source src="${artist.videoFile}" type="video/mp4">
+                                        المتصفح لا يدعم التشغيل المباشر.
+                                    </video>
+                                </div>`;
+            }
+
+            if (artist.images && artist.images.length > 0) {
+                mediaHTML += `<div class="media-grid">
+                                    ${artist.images.map(img => `
+                                        <div class="media-item">
+                                            <img src="${img}" alt="Artwork" onclick="openLightbox('${img}')" onerror="this.parentElement.style.display='none';">
+                                        </div>
+                                    `).join('')}
+                                </div>`;
+            }
+
+            if (artist.bottomImages && artist.bottomImages.length > 0) {
+                mediaHTML += `<div class="media-grid two-cols">
+                                    ${artist.bottomImages.map(img => `
+                                        <div class="media-item">
+                                            <img src="${img}" alt="Artwork" onclick="openLightbox('${img}')" onerror="this.parentElement.style.display='none';">
+                                        </div>
+                                    `).join('')}
+                                </div>`;
+            }
+
+            if (artist.audio) {
+                mediaHTML += `<div class="audio-box">
+                                    <p style="font-weight:700; margin-bottom:8px; color:var(--accent-orange);">${t.audioLabel}</p>
+                                    <audio controls style="width:100%;">
+                                        <source src="${artist.audio}" type="audio/mpeg">
+                                    </audio>
+                                </div>`;
+            }
+
+            modalBody.innerHTML = `
+                    <div class="artist-profile-layout">
+                        <div class="artist-info-col">
+                            <h1>${artist.name[currentLang]}</h1>
+                            <div class="orange-sub">${artist.subTitle[currentLang]}</div>
+                            <div class="meta-tag">${artist.meta[currentLang]}</div>
+                            <div class="bio-container">
+                                <div class="bio-p" id="bioText">${artist.bio[currentLang]}</div>
+                                <button class="read-more-btn" id="readMoreBtn" onclick="toggleBioExpand()">${t.readMore}</button>
+                            </div>
+                        </div>
+
+                        <div class="artist-media-col">
+                            <img src="${artist.img}" alt="${artist.name[currentLang]}" class="single-square-artist-img" onclick="openLightbox('${artist.img}')">
+                        </div>
+                    </div>
+
+                    <div class="project-section">
+                        <h2>${artist.projectTitle[currentLang]}</h2>
+                        <div class="project-text-content">${artist.projectDesc[currentLang]}</div>
+                        ${mediaHTML}
+                    </div>
+                `;
+
+            document.getElementById('artistModal').style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function toggleBioExpand() {
+            const bioText = document.getElementById('bioText');
+            const btn = document.getElementById('readMoreBtn');
+            const t = translations[currentLang];
+
+            if (bioText.classList.contains('expanded')) {
+                bioText.classList.remove('expanded');
+                btn.innerText = t.readMore;
+            } else {
+                bioText.classList.add('expanded');
+                btn.innerText = t.readLess;
+            }
+        }
+
+        function closeArtistModal() {
+            const videoElem = document.querySelector('#artistModal video');
+            if (videoElem) {
+                videoElem.pause();
+            }
+            const audioElem = document.querySelector('#artistModal audio');
+            if (audioElem) {
+                audioElem.pause();
+            }
+
+            document.getElementById('artistModal').style.display = 'none';
+            document.body.style.overflow = 'auto';
+            currentActiveArtist = null;
+        }
+
+        function closeModalOnOverlay(e) {
+            if (e.target.id === 'artistModal') {
+                closeArtistModal();
+            }
+        }
+
+        function openLightbox(src) {
+            document.getElementById('lightboxImg').src = src;
+            document.getElementById('lightboxModal').style.display = 'flex';
+        }
+
+        function closeLightbox() {
+            document.getElementById('lightboxModal').style.display = 'none';
+        }
+    </script>
+</body>
+</html>
