@@ -73,7 +73,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 1.2rem 4rem;
+            padding: 1.4rem 4rem;
             background: rgba(18, 22, 20, 0.95);
             backdrop-filter: blur(12px);
             border-bottom: 1px solid var(--border-dark);
@@ -90,7 +90,7 @@
         }
 
         .logo h2 {
-            font-size: 1.4rem;
+            font-size: 1.5rem;
             font-weight: 800;
             color: var(--text-primary);
             line-height: 1.1;
@@ -98,7 +98,7 @@
 
         .logo span {
             font-family: 'Alexandria', sans-serif;
-            font-size: 0.85rem;
+            font-size: 0.9rem;
             color: var(--accent-orange);
             letter-spacing: 1px;
             display: block;
@@ -109,7 +109,7 @@
         .nav-links {
             display: flex;
             align-items: center;
-            gap: 1rem;
+            gap: 1.2rem;
             position: absolute;
             left: 50%;
             transform: translateX(-50%);
@@ -118,23 +118,22 @@
         .nav-links a {
             color: var(--text-primary);
             text-decoration: none;
-            font-size: 1rem;
+            font-size: 1.1rem;
             font-weight: 600;
-            padding: 0.55rem 1.4rem;
+            padding: 0.65rem 1.6rem;
             border: 1.5px solid var(--border-dark);
             border-radius: 30px;
             background: rgba(255, 255, 255, 0.05);
             cursor: pointer;
             transition: all 0.3s ease;
             letter-spacing: 0.3px;
-            white-space: nowrap;
         }
 
         .lang-btn {
             color: var(--text-primary);
-            font-size: 0.95rem;
+            font-size: 1.05rem;
             font-weight: 700;
-            padding: 0.55rem 1.3rem;
+            padding: 0.65rem 1.5rem;
             border: 1.5px solid var(--border-dark);
             border-radius: 30px;
             background: rgba(255, 255, 255, 0.05);
@@ -143,7 +142,6 @@
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            white-space: nowrap;
         }
 
         .nav-links a:hover,
@@ -157,7 +155,7 @@
 
         /* Hero Banner Section */
         .hero-section {
-            padding: 3.5rem 2rem;
+            padding: 3.5rem 4rem;
             max-width: 1300px;
             margin: 0 auto;
             width: 100%;
@@ -269,14 +267,11 @@
             color: var(--text-secondary);
             font-size: 0.85rem;
             font-weight: 300;
-            text-align: center;
-            gap: 10px;
-            flex-wrap: wrap;
         }
 
         /* About Us Section */
         .about-section {
-            padding: 5rem 2rem;
+            padding: 5rem 4rem;
             max-width: 1300px;
             margin: 0 auto;
             width: 100%;
@@ -371,7 +366,7 @@
 
         /* Artists Section */
         .artists-section {
-            padding: 3rem 2rem 5rem 2rem;
+            padding: 3rem 4rem 5rem 4rem;
             max-width: 1300px;
             margin: 0 auto;
             width: 100%;
@@ -506,7 +501,6 @@
             margin: 0 auto 2.5rem auto;
             line-height: 1.8;
             text-align: center;
-            padding: 0 10px;
         }
 
         .whatsapp-btn {
@@ -531,7 +525,7 @@
         /* Footer */
         .site-footer {
             background-color: #0B0E0C;
-            padding: 3rem 2rem;
+            padding: 3rem 4rem;
             border-top: 1px solid var(--border-dark);
             display: flex;
             justify-content: space-between;
@@ -544,7 +538,6 @@
         .footer-links {
             display: flex;
             gap: 1.8rem;
-            flex-wrap: wrap;
         }
 
         .footer-links a {
@@ -593,7 +586,7 @@
             display: none;
             justify-content: center;
             align-items: center;
-            padding: 1rem;
+            padding: 2rem;
         }
 
         .modal-content {
@@ -605,7 +598,7 @@
             border-radius: 12px;
             border: 1px solid var(--border-dark);
             position: relative;
-            padding: 3.5rem 2.5rem 2.5rem 2.5rem;
+            padding: 3.5rem 3rem 3rem 3rem;
             box-shadow: 0 20px 50px rgba(0,0,0,0.85);
             animation: modalFadeIn 0.3s ease;
             color: var(--text-primary);
@@ -628,10 +621,10 @@
             background: var(--accent-orange);
             color: #121614;
             border: none;
-            width: 32px;
-            height: 32px;
+            width: 28px;
+            height: 28px;
             border-radius: 50%;
-            font-size: 1rem;
+            font-size: 0.9rem;
             font-weight: bold;
             cursor: pointer;
             display: flex;
@@ -705,7 +698,6 @@
 
         .bio-p.expanded {
             -webkit-line-clamp: unset;
-            display: block;
         }
 
         .read-more-btn {
@@ -820,7 +812,7 @@
             border-radius: 6px;
             border: 1px solid var(--border-dark);
             outline: none;
-            background: #000;
+            background: var(--bg-card);
         }
 
         .audio-box audio {
@@ -840,11 +832,11 @@
             display: none;
             justify-content: center;
             align-items: center;
-            padding: 1.5rem;
+            padding: 2rem;
         }
 
         .lightbox-overlay img {
-            max-width: 95vw;
+            max-width: 90vw;
             max-height: 90vh;
             object-fit: contain;
             border-radius: 6px;
@@ -856,44 +848,21 @@
             top: 1.5rem;
             right: 2rem;
             color: #fff;
-            font-size: 2.2rem;
+            font-size: 2rem;
             cursor: pointer;
             font-weight: bold;
-            z-index: 2001;
         }
 
-        /* Responsive Improvements */
-        @media (max-width: 1100px) {
+        /* ضبط التجاوب مع كافة الشاشات دون المساس بالتصميم */
+        @media (max-width: 992px) {
             .navbar {
-                padding: 1.2rem 2rem;
-            }
-            .nav-links {
-                position: static;
-                transform: none;
-            }
-        }
-
-        @media (max-width: 868px) {
-            .navbar {
-                padding: 1rem 1.2rem;
-                flex-direction: column;
+                padding: 1.2rem 1.5rem;
+                flex-wrap: wrap;
                 gap: 1rem;
             }
 
-            .nav-links {
-                flex-wrap: wrap;
-                justify-content: center;
-                gap: 0.6rem;
-                width: 100%;
-            }
-
-            .nav-links a {
-                padding: 0.45rem 1rem;
-                font-size: 0.9rem;
-            }
-
-            .hero-section {
-                padding: 2.5rem 1.2rem;
+            .hero-section, .artists-section, .about-section, .site-footer {
+                padding: 2.5rem 1.5rem;
             }
 
             .hero-grid {
@@ -901,20 +870,19 @@
                 gap: 2.5rem;
             }
 
-            .main-title {
-                font-size: 2.4rem;
+            .nav-links {
+                position: static;
+                transform: none;
+                order: 3;
+                width: 100%;
+                justify-content: center;
+                flex-wrap: wrap;
+                gap: 0.6rem;
             }
 
-            .about-section {
-                padding: 3.5rem 1.2rem;
-            }
-
-            .about-big-title {
-                font-size: 2.1rem;
-            }
-
-            .artists-section {
-                padding: 2.5rem 1.2rem 4rem 1.2rem;
+            .nav-links a {
+                padding: 0.5rem 1rem;
+                font-size: 0.9rem;
             }
 
             .artists-grid {
@@ -926,45 +894,48 @@
                 gap: 1.5rem;
             }
 
-            .single-square-artist-img {
-                height: 250px;
-            }
-
             .media-grid, .media-grid.two-cols {
                 grid-template-columns: repeat(2, 1fr);
-                gap: 12px;
-            }
-
-            .contact-section {
-                padding: 4rem 1.2rem;
-            }
-
-            .contact-title {
-                font-size: 2.5rem;
-            }
-
-            .site-footer {
-                padding: 2.5rem 1.2rem;
-                flex-direction: column-reverse;
-                text-align: center;
-                gap: 1.5rem;
-            }
-
-            .footer-links {
-                justify-content: center;
             }
 
             .modal-content {
-                padding: 3rem 1.2rem 1.5rem 1.2rem;
+                padding: 3rem 1.5rem 1.5rem 1.5rem;
+            }
+
+            .site-footer {
+                flex-direction: column-reverse;
+                align-items: center;
+                text-align: center;
+            }
+
+            .footer-links {
+                flex-wrap: wrap;
+                justify-content: center;
             }
         }
 
-        @media (max-width: 520px) {
-            .artists-grid {
-                grid-template-columns: 1fr;
+        @media (max-width: 576px) {
+            .navbar {
+                padding: 1rem;
+            }
+
+            .main-title {
+                font-size: 2.2rem;
+            }
+
+            .about-big-title {
+                font-size: 2rem;
+            }
+
+            .contact-title {
+                font-size: 2.4rem;
             }
 
             .media-grid, .media-grid.two-cols {
+                grid-template-columns: 1fr;
+            }
+
+            .artists-grid {
                 grid-template-columns: 1fr;
             }
 
@@ -972,29 +943,15 @@
                 height: 220px;
             }
 
-            .main-title {
-                font-size: 2rem;
-            }
-
-            .about-big-title {
-                font-size: 1.8rem;
-            }
-
-            .contact-title {
-                font-size: 2rem;
+            .bottom-info-bar {
+                flex-direction: column;
+                gap: 8px;
+                padding: 1rem;
             }
 
             .whatsapp-btn {
-                width: 100%;
-                justify-content: center;
                 padding: 0.8rem 1.5rem;
                 font-size: 0.95rem;
-            }
-
-            .bottom-info-bar {
-                flex-direction: column;
-                gap: 6px;
-                padding: 1rem;
             }
         }
     </style>
@@ -1476,7 +1433,7 @@
             if (artist.videoFile) {
                 mediaHTML += `<div class="video-box">
                                     <p style="font-weight:700; margin-bottom:12px; color:var(--accent-orange);">${t.videoLabel}</p>
-                                    <video controls playsinline preload="metadata">
+                                    <video controls playsinline controlsList="nodownload">
                                         <source src="${artist.videoFile}" type="video/mp4">
                                         المتصفح لا يدعم التشغيل المباشر.
                                     </video>
