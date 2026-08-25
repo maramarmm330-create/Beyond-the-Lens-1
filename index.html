@@ -699,7 +699,7 @@
             margin-bottom: 1.2rem;
         }
 
-        .bio-container {
+        .bio-container, .project-desc-container {
             position: relative;
             width: 100%;
         }
@@ -720,6 +720,21 @@
 
         .bio-p.expanded {
             -webkit-line-clamp: unset;
+            display: block;
+        }
+
+        /* تنسيق طي وفرد وصف المشروع */
+        .project-desc-clamp {
+            overflow: hidden;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            transition: all 0.3s ease;
+        }
+
+        .project-desc-clamp.expanded {
+            -webkit-line-clamp: unset;
+            display: block;
         }
 
         .read-more-btn {
@@ -1565,7 +1580,10 @@
 
                     <div class="project-section">
                         <h2>${artist.projectTitle[currentLang]}</h2>
-                        <div class="project-text-content">${artist.projectDesc[currentLang]}</div>
+                        <div class="project-desc-container">
+                            <div class="project-text-content project-desc-clamp" id="projectDescText">${artist.projectDesc[currentLang]}</div>
+                            <button class="read-more-btn" id="readMoreProjBtn" onclick="toggleProjectDescExpand()">${t.readMore}</button>
+                        </div>
                         ${mediaHTML}
                     </div>
                 `;
@@ -1584,6 +1602,20 @@
                 btn.innerText = t.readMore;
             } else {
                 bioText.classList.add('expanded');
+                btn.innerText = t.readLess;
+            }
+        }
+
+        function toggleProjectDescExpand() {
+            const projText = document.getElementById('projectDescText');
+            const btn = document.getElementById('readMoreProjBtn');
+            const t = translations[currentLang];
+
+            if (projText.classList.contains('expanded')) {
+                projText.classList.remove('expanded');
+                btn.innerText = t.readMore;
+            } else {
+                projText.classList.add('expanded');
                 btn.innerText = t.readLess;
             }
         }
