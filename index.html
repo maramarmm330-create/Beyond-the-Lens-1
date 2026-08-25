@@ -354,38 +354,6 @@
             text-justify: inter-word;
         }
 
-        .about-support-card {
-            margin-top: 1rem;
-            padding: 1.2rem 1.5rem;
-            border: 1px solid var(--border-dark);
-            background: rgba(255, 255, 255, 0.01);
-            position: relative;
-            max-width: 380px;
-            border-radius: 4px;
-            width: 100%;
-        }
-
-        html[dir="rtl"] .about-support-card {
-            border-right: 3px solid var(--accent-orange);
-        }
-
-        html[dir="ltr"] .about-support-card {
-            border-left: 3px solid var(--accent-orange);
-        }
-
-        .about-support-card .sup-title {
-            color: var(--accent-orange);
-            font-size: 0.8rem;
-            font-weight: 700;
-            margin-bottom: 4px;
-        }
-
-        .about-support-card .sup-desc {
-            color: var(--text-secondary);
-            font-size: 0.85rem;
-            font-weight: 300;
-        }
-
         /* Artists Section */
         .artists-section {
             padding: 3rem 4rem 5rem 4rem;
@@ -1086,11 +1054,6 @@
                 <p class="about-paragraph" id="aboutP2">
                     خمسة فنانين من غزة يلتقون عبر تخصصات مختلفة: الفن البصري، الأداء، التصوير الفوتوغرافي، الرسم، والكتابة؛ ليرسموا ويشهدوا عبر ممارستهم الفنية. كل عمل يفتح نافذة مختلفة على الحقيقة ذاتها التي لم تُقَل بعد.
                 </p>
-
-                <div class="about-support-card">
-                    <div class="sup-title" id="aboutSupTitle">بدعم من</div>
-                    <div class="sup-desc" id="aboutSupDesc">مؤسسة عبد المحسن القطان — منحة تحولات 2025</div>
-                </div>
             </div>
         </div>
     </section>
@@ -1227,8 +1190,6 @@
                 aboutSubHead: "خلف بريق الزجاج، وتحت وطأة الضوء، ثمة حكاية لم تقتنصها الصورة بعد.",
                 aboutP1: "نحن لا نعرض لكم \"لقطات\"، بل نعرض \"الندوب\" التي تركتها تلك اللحظات في مخيلة من عاشوها. هنا، ليست الصورة مجرد توثيق لحدثٍ مضى، بل هي الأثر الباقي من روحٍ واجهت الفناء، ونتاجٌ مركبٌ يمتزج فيه وجع الفقد بعنفوان البطولة، وتتجلى فيه ملامح اللاعدالة كوشمٍ لا يمحوه الزمن.",
                 aboutP2: "خمسة فنانين من غزة يلتقون عبر تخصصات مختلفة: الفن البصري، الأداء، التصوير الفوتوغرافي، الرسم، والكتابة؛ ليرسموا ويشهدوا عبر ممارستهم الفنية. كل عمل يفتح نافذة مختلفة على الحقيقة ذاتها التي لم تُقَل بعد.",
-                aboutSupTitle: "بدعم من",
-                aboutSupDesc: "مؤسسة عبد المحسن القطان — منحة تحولات 2025",
                 contactTag: "تواصل معنا",
                 contactTitle: "اتصل بنا",
                 contactSub: "للاستفسارات الصحفية، التعاون، زيارة المعرض، أو أي أسئلة حول المشروع والفنانين المشاركين، نرحب برسالتكم.",
@@ -1266,8 +1227,6 @@
                 aboutSubHead: "Behind the glare of glass, and under the weight of light, lies a story the image has not captured yet.",
                 aboutP1: "We do not show you 'shots'; we show you the 'scars' left by those moments in the imagination of those who lived them. Here, the image is not merely documentation of a past event—it is the remaining trace of a soul that faced extinction.",
                 aboutP2: "Five artists from Gaza unite across different disciplines: visual art, performance, photography, painting, and writing, to bear witness through their artistic practices. Each work opens a distinct aperture onto the unsaid truth.",
-                aboutSupTitle: "Supported by",
-                aboutSupDesc: "A. M. Qattan Foundation — Tahawwulat Grant 2025",
                 contactTag: "Contact Us",
                 contactTitle: "Get In Touch",
                 contactSub: "For press inquiries, collaboration, exhibition visits, or questions about the project and participating artists, we welcome your message.",
@@ -1477,8 +1436,6 @@
             document.getElementById('aboutSubHead').innerText = t.aboutSubHead;
             document.getElementById('aboutP1').innerText = t.aboutP1;
             document.getElementById('aboutP2').innerText = t.aboutP2;
-            document.getElementById('aboutSupTitle').innerText = t.aboutSupTitle;
-            document.getElementById('aboutSupDesc').innerText = t.aboutSupDesc;
 
             document.getElementById('contactTag').innerText = t.contactTag;
             document.getElementById('contactTitle').innerText = t.contactTitle;
